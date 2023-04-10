@@ -27,11 +27,22 @@ pipeline {
 		         }
 		
         stage ('TEST'){
-			steps {
-				echo "This is Test"
-					}
-		         }
+			parallel {
+				stage('test-01') {
+					steps {
+						echo "this is test-01"
+						}
+					  }
+			    stage('test-02') {
+					steps {
+				        echo "This is Test"
+					   }
+		           }
 				
-	        }
+	             }
+	          }
+			 }
+			}
+	     
 		}
 	     
