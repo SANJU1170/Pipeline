@@ -2,7 +2,6 @@ pipeline {
 	agent none
 		stages {
 			stage ('BUILD'){
-				input {  message 'enter something'}
 				agent { label 'agent1' }
 				steps {
 					echo "This is Build stage"
