@@ -1,25 +1,16 @@
 pipeline {
 	agent any
 		stages {
-			stage ('CLONE'){
-				steps {
-					echo "This is Build stage"
-					  }
-				   }  	
-			stage ('BUILD'){
-					steps {
-					echo "This is BUILD stage for CHROME"
+			stage ('CLONE <--> TEST PARALLEL')
+				parallel {
+				stage ('clone-01'){
+				steps { 
+					echo "This is clone-01"
 					  }
 					 }
-			stage ('TEST') {
-				steps {
-					echo "This is TEST stage for UC"  
-					     }
-					   }		
-			stage ('DEPLOY'){
-				steps {
-					echo "This is Build stage"
-					  }
-				   } 	
+			     stage ('clone-02') {
+				 steps {
+					echo "This is Clone-02"
+					}
 				}
-	      }
+			}
