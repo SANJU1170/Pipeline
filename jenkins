@@ -1,8 +1,7 @@
 pipeline {
 	agent none
 		stages {
-			stage ('BUILD'){
-			           git branch:{ 'main', url: 'https://github.com/SANJU1170/C-Projects.git' }
+			stage ('BUILD')
 				agent { label 'agent1' }
 				steps {
 					echo "This is Build stage"
