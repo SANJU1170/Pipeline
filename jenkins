@@ -1,21 +1,25 @@
 pipeline {
-	agent any
+	agent none {
 		stages {
-			stage ('BUILD'){
-				steps {
-					echo "This is Build stage"
-					}
-				  }
-				  stage ('TEST'){
-				steps {
-					echo "This is Test stage"
-					}
-				  }
-				    stage ('DEPLOY'){
-				steps {
-					echo "This is Deploy stage"
-					}
-				  }  
-				  
-				}
-	        }
+			stage ('BUILD') {
+				agent { label 'slave1' }
+					steps {
+						echo "This is build stage"
+						  }
+							}
+		    stage ('TEST') {
+			    agent { label 'slave1' }
+					steps {
+						echo "This is test stage"
+							}
+							   }
+
+            stage ('TEST') {
+			    agent { label 'slave1' }
+					steps {
+						echo "This is test stage"
+							}
+						       }
+			                     }
+		                            }
+									 }
