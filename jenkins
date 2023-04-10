@@ -11,14 +11,14 @@ pipeline {
 			stage ('TEST'){
 				agent { label 'slave1' }
 				steps {
-					echo "This is Build stage"
+					echo "This is Test stage"
 					  }
 				   }  	
 				
 			stage ('DEPLOY'){
 				agent { label 'slave2' }
 				steps {
-					echo "This is Build stage"
+					echo "This is Deploy stage"
 					  }
 				   } 	
 				}
