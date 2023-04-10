@@ -38,9 +38,13 @@ pipeline {
 				        echo "This is Test"
 					   }
 		           }
+				stage('test-03') {
+					steps {
+				        echo "This is Test"
+					   }
+		           }
 				
-	             }
-	          }
+	             } 
+	           }
 			 }
 		}
-	     
