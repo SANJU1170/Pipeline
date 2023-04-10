@@ -1,22 +1,25 @@
 pipeline {
-	agent none
+	agent any
 		stages {
-			stage ('BUILD')
-				agent { label 'agent1' }
+			stage ('BUILD'){
 				steps {
 					echo "This is Build stage"
 					  }
 				   }  
 				
-			stage ('TEST'){
-				agent { label 'slave1' }
+			stage ('TEST1'){
+			parallel {
 				steps {
-					echo "This is Test stage"
+					echo "This is test1 stage for uc"
 					  }
-				   }  	
-				
+			stage ('TEST2') {
+				steps {
+					echo "This is test2 stage for chrome"  
+					     }
+					   }
+					 } 
+				  }  		
 			stage ('DEPLOY'){
-				agent { label 'slave2' }
 				steps {
 					echo "This is Deploy stage"
 					  }
