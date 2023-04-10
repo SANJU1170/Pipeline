@@ -6,7 +6,6 @@ pipeline {
 					echo "This is clone"
 					  }
 					}
-			stage ('PARALLEL'){
 				parallel {
 					stage('clone-01'){
 						steps {
@@ -32,4 +31,3 @@ pipeline {
 					}
 		         }
 	        }
-	     }
