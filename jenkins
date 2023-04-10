@@ -13,9 +13,9 @@ pipeline {
 							echo "This is clone-02"
 					          }
 					        }
-                    stage('clone-02'){
+                    stage('clone-03'){
 						steps {
-							echo "This is clone-02"
+							echo "This is clone-03"
 					          }
 					        }	
 					  }
