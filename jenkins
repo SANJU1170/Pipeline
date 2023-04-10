@@ -14,6 +14,7 @@ pipeline {
 					}
 				}
      		}
+		  }
 		   
 		    stage ('BUILD'){
 				steps {
@@ -22,4 +23,3 @@ pipeline {
 		         }
 		     }
 	     }
-      }
