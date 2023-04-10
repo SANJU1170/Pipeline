@@ -7,19 +7,4 @@ pipeline {
 						echo "This is build stage"
 						  }
 							}
-		    stage ('TEST') {
-			    agent { label 'slave1' }
-					steps {
-						echo "This is test stage"
-							}
-							   }
-
-            stage ('TEST') {
-			    agent { label 'slave1' }
-					steps {
-						echo "This is test stage"
-							}
-						       }
-			                     }
-		                            }
-									 }
+							    }
