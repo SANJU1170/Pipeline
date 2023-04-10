@@ -7,21 +7,23 @@ pipeline {
 					  }
 				   }  
 				
-			stage ('TEST1'){
+			stage ('TEST PARALLEL'){
 			parallel {
-				steps {
-					echo "This is test1 stage for uc"
+				stage ('TEST IN CHROME') {
+					steps {
+					echo "This is test1 stage for CHROME"
 					  }
-			stage ('TEST2') {
+					 }
+			    stage ('TEST ON UC') {
 				steps {
-					echo "This is test2 stage for chrome"  
+					echo "This is test2 stage for UC"  
 					     }
 					   }
 					 } 
 				  }  		
 			stage ('DEPLOY'){
 				steps {
-					echo "This is Deploy stage"
+					echo "This is Build stage"
 					  }
 				   } 	
 				}
