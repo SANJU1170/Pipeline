@@ -2,10 +2,6 @@ pipeline {
 	agent any
 		stages {
 			stage ('CLONE'){
-				steps { 
-					echo "This is clone"
-					  }
-					}
 				parallel {
 					stage('clone-01'){
 						steps {
@@ -16,9 +12,9 @@ pipeline {
 						steps {
 							echo "This is clone-02"
 					          }
-					        }
-                         							
-					  }		
+					        } 							
+					  }
+                  }					  
 		stage ('BUILD'){
 			steps {
 				echo "This is Build"
