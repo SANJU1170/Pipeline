@@ -5,8 +5,20 @@ pipeline {
 				steps { 
 					echo "This is clone"
 					  }
-					 }
-		   
+			stage ('PARALLEL'){
+				parallel {
+					stage('clone-01'){
+						steps {
+							echo "This is clone-01"
+					          }
+					        }
+					stage('clone-02'){
+						steps {
+							echo "This is clone-02"
+					          }
+					        }
+                         }							
+					  }		
 		    stage ('BUILD'){
 				steps {
 					echo "This is Build"
@@ -20,4 +32,5 @@ pipeline {
 		         }
 	        }
 	     }
+      
 
