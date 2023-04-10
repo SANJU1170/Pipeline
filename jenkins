@@ -1,20 +1,11 @@
 pipeline {
 	agent any
 		stages {
-			stage ('CLONE <--> TEST PARALLEL'){
-				parallel {
-				stage ('clone-01'){
+			stage ('CLONE'){
 				steps { 
-					echo "This is clone-01"
+					echo "This is clone"
 					  }
 					 }
-			     stage ('clone-02') {
-				 steps {
-					echo "This is Clone-02"
-					}
-				}
-     		}
-		  }
 		   
 		    stage ('BUILD'){
 				steps {
@@ -27,6 +18,6 @@ pipeline {
 					echo "This is Test"
 					}
 		         }
-	
-		}
+	        }
 	     }
+
