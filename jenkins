@@ -17,7 +17,8 @@ pipeline {
 						steps {
 							echo "This is clone-03"
 					          }
-					        }	
+					        }
+                          }							
 					  }					  
 		stage ('BUILD'){
 			steps {
@@ -30,7 +31,7 @@ pipeline {
 				echo "This is Test"
 					}
 		         }
-				}
+				
 	        }
 		}
 	     
