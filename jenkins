@@ -1,14 +1,14 @@
 pipeline {
 	agent any
-	environment { 
-		NAME = 'SANJAY'
-		}
+	parameters {
+		string defaultValue: 'deploy', description: 'application chrome', name: 'ENV', trim: true
+              }
 		stages {                                                                                    
 			stage ('CLONE'){
 				parallel {
 					stage('clone-01'){
 						steps {
-							echo "This is clone-01 $NAME"                                                         
+							echo "This is clone-01 $ENV"                                                         
 					          }
 					        }
 					stage('clone-02'){
