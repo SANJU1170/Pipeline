@@ -2,7 +2,8 @@ pipeline {
 	agent any
 	parameters {
 		string defaultValue: 'deploy', description: 'application chrome', name: 'ENV', trim: true
-              }
+		choice choices: ['CHROME', 'EDGE', 'FIREFOX'], description: 'Browsers for deploy the application', name: 'SELECT'
+               }
 		stages {                                                                                    
 			stage ('CLONE'){
 				parallel {
@@ -13,7 +14,7 @@ pipeline {
 					        }
 					stage('clone-02'){
 						steps {
-							echo "This is clone-02"
+							echo "This is clone-02 $SELECT"
 					          }
 					        }
                     stage('clone-03'){
