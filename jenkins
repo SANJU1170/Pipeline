@@ -1,11 +1,14 @@
 pipeline {
 	agent any
+	ENV { 
+		NAME = 'SANJAY'
+		}
 		stages {                                                                                    
 			stage ('CLONE'){
 				parallel {
 					stage('clone-01'){
 						steps {
-							echo "This is clone-01"                                                         
+							echo "This is clone-01 $NAME"                                                         
 					          }
 					        }
 					stage('clone-02'){
