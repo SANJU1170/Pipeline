@@ -1,50 +1,20 @@
 pipeline {
-	agent any
-		stages {
-			stage ('CLONE'){
-				parallel {
-					stage('clone-01'){
-						steps {
-							echo "This is clone-01"
-					          }
-					        }
-					stage('clone-02'){
-						steps {
-							echo "This is clone-02"
-					          }
-					        }
-                    stage('clone-03'){
-						steps {
-							echo "This is clone-03"
-					          }
-					        }
-                          }							
-					  }					  
-		stage ('BUILD'){
-			steps {
-				echo "This is Build"
-					}
-		         }
-		
-        stage ('TEST'){
-			parallel {
-				stage('test-01') {
-					steps {
-						echo "this is test-01"
-						}
-					  }
-			    stage('test-02') {
-					steps {
-				        echo "This is Test"
-					   }
-		           }
-				stage('test-03') {
-					steps {
-				        echo "This is Test"
-					   }
-		           }
-				
-	             } 
-	           }
-			 }
-		}
+  agent any
+  stages {
+    stage('Build') {
+      steps {
+        echo 'from build'
+      }
+    }
+  }
+
+    stage('Test_A') {
+      parallel {
+        stages("GUI") { stage("Tests_A") { steps {echo 'from A'}} stage("Archive") {echo 'from Publish' } }
+        stages("API") { stage("Tests_B") {steps {echo 'from B'} } }
+        stages("CLI") {  stage("Tests_C") {steps {echo 'from C'} }}
+
+      }
+    }
+
+  
