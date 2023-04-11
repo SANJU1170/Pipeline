@@ -1,54 +1,22 @@
 pipeline {
 	agent any
-	parameters {
-		string defaultValue: 'deploy', description: 'application chrome', name: 'ENV', trim: true
-		choice choices: ['CHROME', 'EDGE', 'FIREFOX'], description: 'Browsers for deploy the application', name: 'SELECT'
-               }
-		stages {                                                                                    
-			stage ('CLONE'){
-				parallel {
-					stage('clone-01'){
-						steps {
-							echo "This is clone-01 $ENV"                                                         
-					          }
-					        }
-					stage('clone-02'){
-						steps {
-							echo "This is clone-02 $SELECT"
-					          }
-					        }
-                    stage('clone-03'){
-						steps {
-							echo "This is clone-03"
-					          }
-					        }
-                          }							
-					  }					  
+		stages {
 			stage ('BUILD'){
 				steps {
-					echo "This is Build"
-					}
-		         }
-		
-			stage ('TEST'){
-				parallel {
-					stage('test-01') {
-						steps {
-							echo "this is test-01"
-						}
+					echo "This is Build stage and completed sucessfully"
 					  }
-					stage('test-02') {
-						steps {
-							echo "This is Test"
-					   }
-		           }
-					stage('test-03') {
-						steps {
-							echo "This is Test"
-					   }
-		           }
+				   }  
 				
-	             } 
-	           }
-			 }
-		}
+			stage ('TEST'){
+				steps {
+					echo "This is Test stage and completed sucessfully"
+					  }
+				   }  	
+				
+			stage ('DEPLOY'){
+				steps {
+					echo "This is Deploy stage and completed sucessfully"
+					  }
+				   } 	
+				}
+	      }
