@@ -3,6 +3,7 @@ pipeline {
 	parameters {
 		string defaultValue: 'deploy', description: 'application chrome', name: 'ENV', trim: true
 		choice choices: ['CHROME', 'EDGE', 'FIREFOX'], description: 'Browsers for deploy the application', name: 'SELECT'
+		password defaultValue: 'admin', name: 'Password'
                }
 		stages {                                                                                    
 			stage ('CLONE'){
